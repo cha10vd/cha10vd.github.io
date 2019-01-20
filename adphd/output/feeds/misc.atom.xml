@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>AD(P)HD</title><link href="https://cha10vd.github.io/" rel="alternate"></link><link href="https://cha10vd.github.io/feeds/misc.atom.xml" rel="self"></link><id>https://cha10vd.github.io/</id><updated>2019-01-20T17:04:51+00:00</updated><entry><title>Welcome!</title><link href="https://cha10vd.github.io/2019/01/welcome.html" rel="alternate"></link><published>2019-01-20T17:04:51+00:00</published><updated>2019-01-20T17:04:51+00:00</updated><author><name>victor</name></author><id>tag:cha10vd.github.io,2019-01-20:2019/01/welcome.html</id><summary type="html">&lt;h1&gt;Welcome to AD(P)HD&lt;/h1&gt;
+&lt;p&gt;Here you'll find articles spanning several areas of science and
+technologym focussing on fundamental aspects of the molecular sciences
+and the use of programming to explore these ideas.&lt;/p&gt;
+&lt;p&gt;Our interests include (but are not limited to):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Molecular Quantum Mechanics&lt;/li&gt;
+&lt;li&gt;Molecular Graphics&lt;/li&gt;
+&lt;li&gt;Crystallography&lt;/li&gt;
+&lt;li&gt;Programming Paradigms&lt;/li&gt;
+&lt;li&gt;Local and Global Optimization&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We'll strive to post on a weekly basis. Feel free to make requests on
+the comments section and, time and knowledge allowing, we'll see what
+we can do!&lt;/p&gt;
+&lt;p&gt;Yours trully,&lt;/p&gt;
+&lt;p&gt;The team at &lt;strong&gt;AD(P)HD&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;(By the way, I've gotta test a formula, so here goes: &lt;span class="math"&gt;\(\pi=3.141\)&lt;/span&gt;)&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</summary><category term="General"></category></entry></feed>
