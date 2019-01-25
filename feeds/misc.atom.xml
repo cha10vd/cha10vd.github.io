@@ -18,9 +18,9 @@ we can do!&lt;/p&gt;
 &lt;p&gt;The team at &lt;strong&gt;AD(P)HD&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;(By the way, I've gotta test a formula, so here goes: &lt;span class="math"&gt;\(\pi=3.141\)&lt;/span&gt;)&lt;/p&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
+    var align = "left",
+        indent = "1em",
+        linebreak = "true";
 
     if (false) {
         align = (screen.width &lt; 768) ? "left" : align;
@@ -49,7 +49,7 @@ we can do!&lt;/p&gt;
         "        preview: 'TeX'," +
         "    }, " +
         "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'blue ! important'} }," +
         "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
         "    }, " +
         "}); " +
