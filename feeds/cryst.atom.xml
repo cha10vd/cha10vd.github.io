@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>AD(P)HD</title><link href="https://cha10vd.github.io/" rel="alternate"></link><link href="https://cha10vd.github.io/feeds/cryst.atom.xml" rel="self"></link><id>https://cha10vd.github.io/</id><updated>2019-01-21T00:00:00+00:00</updated><entry><title>The Fractional Coordinate System</title><link href="https://cha10vd.github.io/2019/01/frac-coord.html" rel="alternate"></link><published>2019-01-21T00:00:00+00:00</published><updated>2019-01-21T00:00:00+00:00</updated><author><name>Victor Do Nascimento</name></author><id>tag:cha10vd.github.io,2019-01-21:2019/01/frac-coord.html</id><summary type="html">&lt;h1&gt;Working in Fractional Coordinates&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>AD(P)HD</title><link href="https://cha10vd.github.io/" rel="alternate"></link><link href="https://cha10vd.github.io/feeds/cryst.atom.xml" rel="self"></link><id>https://cha10vd.github.io/</id><updated>2019-01-21T00:00:00+00:00</updated><entry><title>The Fractional Coordinate System</title><link href="https://cha10vd.github.io/2019/01/frac-coord.html" rel="alternate"></link><published>2019-01-21T00:00:00+00:00</published><updated>2019-01-21T00:00:00+00:00</updated><author><name>victor</name></author><id>tag:cha10vd.github.io,2019-01-21:2019/01/frac-coord.html</id><summary type="html">&lt;h1&gt;Working in Fractional Coordinates&lt;/h1&gt;
 &lt;p&gt;In describing a physical system, one usually has many choices as to the coordinate system in which 
 to formulate a problem, and intuitively it makes sense to choose one in which we may exploit the 
 natural symmetry of the system.&lt;/p&gt;
@@ -8,7 +8,7 @@ likewise a particular coordinate system especially suited for dealing with non-o
 systems.  This is the &lt;em&gt;fractional coordinate system&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;The idea here is to take three vectors which connect repeats in our infinitely repeating system and
 use these as our basis vectors for representing space. In our fractional coordinates our basis is 
-given by &lt;span class="math"&gt;\(a,b,c\)&lt;/span&gt;, as opposed to x,y,z&lt;span class="math"&gt;\(. These will have mutual angles of $\alpha, \beta, \gamma\)&lt;/span&gt;.&lt;/p&gt;
+given by &lt;span class="math"&gt;\(a,b,c\)&lt;/span&gt;, as opposed to &lt;span class="math"&gt;\(x,y,z\)&lt;/span&gt;. These will have mutual angles of &lt;span class="math"&gt;\(\alpha, \beta, \gamma\)&lt;/span&gt;.&lt;/p&gt;
 &lt;figure&gt;
   &lt;img src="/../assets/images/cryst/unit_cell.png" alt="my alt text"/&gt;
   &lt;figcaption&gt;Fractional coordinate system embedded in Cartesian axis.&lt;/figcaption&gt;
@@ -23,12 +23,18 @@ a one-to-one correspondence. &lt;/p&gt;
 gives us the correspondence &lt;span class="math"&gt;\(b = cos(x) + sin(y)\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;Having used up all our degrees of freedom, &lt;em&gt;c&lt;/em&gt; is constrained by the directions of &lt;em&gt;a&lt;/em&gt; and &lt;em&gt;b&lt;/em&gt; and
 the angles it makes with them.&lt;/p&gt;
-&lt;div class="math"&gt;$$ \vec{c} \cdot  \vec{a} = \vec{a}\vec{c}cos(\beta) = a c_{x} $$&lt;/div&gt;
-&lt;div class="math"&gt;$$  \vec{c} \cdot  \vec{b} = \vec{b}\vec{c}cos{\alpha} $$&lt;/div&gt;
+&lt;div class="math"&gt;\begin{equation}
+    \label{cdota}
+    \vec{c} \cdot  \vec{a} = \vec{a}\ \vec{c}\ cos(\beta) = a\  c_{x}
+\end{equation}&lt;/div&gt;
+&lt;div class="math"&gt;\begin{equation}
+    \label{cdotb}
+    \vec{c} \cdot  \vec{b} = \vec{b}\ \vec{c}\ cos{\alpha}
+\end{equation}&lt;/div&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "left",
         indent = "1em",
-        linebreak = "true";
+        linebreak = "false";
 
     if (false) {
         align = (screen.width &lt; 768) ? "left" : align;
@@ -37,13 +43,15 @@ the angles it makes with them.&lt;/p&gt;
     }
 
     var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' }, Macros: {} }," +
         "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
         "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
         "    displayAlign: '"+ align +"'," +
@@ -57,7 +65,7 @@ the angles it makes with them.&lt;/p&gt;
         "        preview: 'TeX'," +
         "    }, " +
         "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'blue ! important'} }," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
         "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
         "    }, " +
         "}); " +

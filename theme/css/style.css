@@ -541,9 +541,9 @@ ol {
     margin: 2em auto
 }
 
-/* ul {
+ul {
     list-style: none
-} */
+}
 
 li {
     position: relative
@@ -564,7 +564,7 @@ ol>li:before {
 
 ul>li:before {
     margin-top: 0.25em;
-    /*content: '*' */
+    content: '*'
 }
 
 ol {
