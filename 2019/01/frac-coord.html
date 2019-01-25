@@ -40,7 +40,7 @@
 
   <link href="https://cha10vd.github.io/2019/01/frac-coord.html" rel="canonical" />
 
-    <meta name="description" content="Working in Fractional Coordinates In describing a physical system, one usually has many choices as to the coordinate system in which to...">
+    <meta name="description" content="Working in Fractional Coordinates $$ \renewcommand{\vec}[1]{\mathbf{#1}} \newcommand{\eucnorm}[1]{\left|\mathbf{#1}\right|}...">
 
     <meta name="author" content="victor">
 
@@ -51,7 +51,7 @@
 <!-- Open Graph -->
 <meta property="og:site_name" content="AD(P)HD"/>
 <meta property="og:title" content="The Fractional Coordinate System"/>
-<meta property="og:description" content="Working in Fractional Coordinates In describing a physical system, one usually has many choices as to the coordinate system in which to..."/>
+<meta property="og:description" content="Working in Fractional Coordinates $$ \renewcommand{\vec}[1]{\mathbf{#1}} \newcommand{\eucnorm}[1]{\left|\mathbf{#1}\right|}..."/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="https://cha10vd.github.io/2019/01/frac-coord.html"/>
 <meta property="og:type" content="article"/>
@@ -79,7 +79,7 @@
   },
   "image": "https://cha10vd.github.io/assets/images/page_header.jpg",
   "url": "https://cha10vd.github.io/2019/01/frac-coord.html",
-  "description": "Working in Fractional Coordinates In describing a physical system, one usually has many choices as to the coordinate system in which to..."
+  "description": "Working in Fractional Coordinates $$ \renewcommand{\vec}[1]{\mathbf{#1}} \newcommand{\eucnorm}[1]{\left|\mathbf{#1}\right|}..."
 }
 </script>
 </head>
@@ -135,9 +135,16 @@
         <div class="inner">
             <section class="post-content">
                 <h1>Working in Fractional Coordinates</h1>
+<div class="math">$$
+    \renewcommand{\vec}[1]{\mathbf{#1}}
+    \newcommand{\eucnorm}[1]{\left|\mathbf{#1}\right|}
+    \newcommand{\veccomp}[1]{({#1}_{x}, {#1}_{y}, {#1}_{z})}
+$$</div>
 <p>In describing a physical system, one usually has many choices as to the coordinate system in which 
 to formulate a problem, and intuitively it makes sense to choose one in which we may exploit the 
 natural symmetry of the system.</p>
+<p>A coordinate system is composed of an <em>origin</em> and a <em>basis</em> of three linearly independent (non-coplanar) 
+basis vectors <span class="math">\(\vec{a}, \vec{b}, \vec{c}\)</span>.</p>
 <p>Just as for problems with spherical symmetry we move from cartesian to polar coordinates, there is 
 likewise a particular coordinate system especially suited for dealing with non-orthogonal repeating
 systems.  This is the <em>fractional coordinate system</em>.</p>
@@ -149,23 +156,29 @@ given by <span class="math">\(a,b,c\)</span>, as opposed to <span class="math">\
   <figcaption>Fractional coordinate system embedded in Cartesian axis.</figcaption>
 </figure>
 
-<p>The question then becomes: <strong>How is this coordinate system connectected to the one we're acustomed 
-to?</strong></p>
+<p>The question then becomes: <strong>How is this coordinate system connectected to the one we're acustomed to?</strong></p>
 <p>If we imagine the "box" formed from the three vectors in each coordinate system, we can start
 by simply aligning one of the fractional vectors to one of its Cartesian counterparts, giving them 
-a one-to-one correspondence. </p>
-<p>we set <em>a</em> to lie along the positive x-axis direction, choosing <em>b</em> to lie in the <em>x,y</em>-plane. This 
-gives us the correspondence <span class="math">\(b = cos(x) + sin(y)\)</span>.</p>
+a one-to-one correspondence. We set <em>a</em> to lie along the positive x-axis direction and choose <em>b</em> 
+to lie in the <em>x,y</em>-plane, givings us the following relations:</p>
+<div class="math">\begin{equation}
+    \label{veca}
+    \vec{a} = (a,0,0)
+\end{equation}</div>
+<div class="math">\begin{equation}
+    \label{vecb}
+    \vec{b} = (b\ cos(x), b\  sin(y), 0)
+\end{equation}</div>
 <p>Having used up all our degrees of freedom, <em>c</em> is constrained by the directions of <em>a</em> and <em>b</em> and
 the angles it makes with them.</p>
 <div class="math">\begin{equation}
     \label{cdota}
-    \vec{c} \cdot  \vec{a} = \vec{a}\ \vec{c}\ cos(\beta) = a\  c_{x}
+    \vec{c} \cdot  \vec{a} = \eucnorm{a}\ \eucnorm{c}\ cos(\beta) = a\  c_{x}
 \end{equation}</div>
-<div class="math">\begin{equation}
-    \label{cdotb}
-    \vec{c} \cdot  \vec{b} = \vec{b}\ \vec{c}\ cos{\alpha}
-\end{equation}</div>
+<div class="math">\begin{align}
+        \vec{c} \cdot  \vec{b}  &amp;= \eucnorm{b}  \eucnorm{c}  cos(\alpha) \\
+                                &amp;= \veccomp{c} \\
+\end{align}</div>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "left",
         indent = "1em",

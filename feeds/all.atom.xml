@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>AD(P)HD</title><link href="https://cha10vd.github.io/" rel="alternate"></link><link href="https://cha10vd.github.io/feeds/all.atom.xml" rel="self"></link><id>https://cha10vd.github.io/</id><updated>2019-01-21T00:00:00+00:00</updated><entry><title>The Fractional Coordinate System</title><link href="https://cha10vd.github.io/2019/01/frac-coord.html" rel="alternate"></link><published>2019-01-21T00:00:00+00:00</published><updated>2019-01-21T00:00:00+00:00</updated><author><name>victor</name></author><id>tag:cha10vd.github.io,2019-01-21:2019/01/frac-coord.html</id><summary type="html">&lt;h1&gt;Working in Fractional Coordinates&lt;/h1&gt;
+&lt;div class="math"&gt;$$
+    \renewcommand{\vec}[1]{\mathbf{#1}}
+    \newcommand{\eucnorm}[1]{\left|\mathbf{#1}\right|}
+    \newcommand{\veccomp}[1]{({#1}_{x}, {#1}_{y}, {#1}_{z})}
+$$&lt;/div&gt;
 &lt;p&gt;In describing a physical system, one usually has many choices as to the coordinate system in which 
 to formulate a problem, and intuitively it makes sense to choose one in which we may exploit the 
 natural symmetry of the system.&lt;/p&gt;
+&lt;p&gt;A coordinate system is composed of an &lt;em&gt;origin&lt;/em&gt; and a &lt;em&gt;basis&lt;/em&gt; of three linearly independent (non-coplanar) 
+basis vectors &lt;span class="math"&gt;\(\vec{a}, \vec{b}, \vec{c}\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;Just as for problems with spherical symmetry we move from cartesian to polar coordinates, there is 
 likewise a particular coordinate system especially suited for dealing with non-orthogonal repeating
 systems.  This is the &lt;em&gt;fractional coordinate system&lt;/em&gt;.&lt;/p&gt;
@@ -14,23 +21,29 @@ given by &lt;span class="math"&gt;\(a,b,c\)&lt;/span&gt;, as opposed to &lt;span
   &lt;figcaption&gt;Fractional coordinate system embedded in Cartesian axis.&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;The question then becomes: &lt;strong&gt;How is this coordinate system connectected to the one we're acustomed 
-to?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The question then becomes: &lt;strong&gt;How is this coordinate system connectected to the one we're acustomed to?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;If we imagine the "box" formed from the three vectors in each coordinate system, we can start
 by simply aligning one of the fractional vectors to one of its Cartesian counterparts, giving them 
-a one-to-one correspondence. &lt;/p&gt;
-&lt;p&gt;we set &lt;em&gt;a&lt;/em&gt; to lie along the positive x-axis direction, choosing &lt;em&gt;b&lt;/em&gt; to lie in the &lt;em&gt;x,y&lt;/em&gt;-plane. This 
-gives us the correspondence &lt;span class="math"&gt;\(b = cos(x) + sin(y)\)&lt;/span&gt;.&lt;/p&gt;
+a one-to-one correspondence. We set &lt;em&gt;a&lt;/em&gt; to lie along the positive x-axis direction and choose &lt;em&gt;b&lt;/em&gt; 
+to lie in the &lt;em&gt;x,y&lt;/em&gt;-plane, givings us the following relations:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation}
+    \label{veca}
+    \vec{a} = (a,0,0)
+\end{equation}&lt;/div&gt;
+&lt;div class="math"&gt;\begin{equation}
+    \label{vecb}
+    \vec{b} = (b\ cos(x), b\  sin(y), 0)
+\end{equation}&lt;/div&gt;
 &lt;p&gt;Having used up all our degrees of freedom, &lt;em&gt;c&lt;/em&gt; is constrained by the directions of &lt;em&gt;a&lt;/em&gt; and &lt;em&gt;b&lt;/em&gt; and
 the angles it makes with them.&lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation}
     \label{cdota}
-    \vec{c} \cdot  \vec{a} = \vec{a}\ \vec{c}\ cos(\beta) = a\  c_{x}
+    \vec{c} \cdot  \vec{a} = \eucnorm{a}\ \eucnorm{c}\ cos(\beta) = a\  c_{x}
 \end{equation}&lt;/div&gt;
-&lt;div class="math"&gt;\begin{equation}
-    \label{cdotb}
-    \vec{c} \cdot  \vec{b} = \vec{b}\ \vec{c}\ cos{\alpha}
-\end{equation}&lt;/div&gt;
+&lt;div class="math"&gt;\begin{align}
+        \vec{c} \cdot  \vec{b}  &amp;amp;= \eucnorm{b}  \eucnorm{c}  cos(\alpha) \\
+                                &amp;amp;= \veccomp{c} \\
+\end{align}&lt;/div&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "left",
         indent = "1em",
