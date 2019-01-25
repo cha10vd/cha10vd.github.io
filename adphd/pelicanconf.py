@@ -6,7 +6,7 @@ AUTHOR = u'victor'
 SITENAME = u'AD(P)HD'
 SITESUBTITLE = u'Science & Technology for the Inattentive Type'
 
-SITEURL = 'http://vdn1m17.github.io'
+SITEURL = ''
 
 PATH = 'content'
 
@@ -44,7 +44,11 @@ PAGINATION_PATTERNS = (
 )
 
 # static paths will be copied without parsing their contents
+# Stylesheet location: /home/vdn1m17/anaconda3/lib/python3.6/site-packages/pelican/themes/attila/static/css/style.css
 STATIC_PATHS = ['assets']
+
+
+
 
 # Not all metadata needs to be embedded in source file itself. For
 # example, blog posts are often named following a YYYY-MM-DD-SLUG.rst
@@ -85,7 +89,7 @@ PLUGIN_PATHS = [
 
 PLUGINS = [
         'ipynb.markup',
-        'render_math.math'
+        'pelican_plugin-render_math.render_math'
         ]
 
 # Sitemap
@@ -108,6 +112,10 @@ DISQUS_SITENAME = "adphd-1"
 
 # Analytics
 #GOOGLE_ANALYTICS = "UA-3546274-12"
+
+# Equation-related options:
+MATH_JAX = {'align': 'left', 
+            'indent': '1em'}
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
