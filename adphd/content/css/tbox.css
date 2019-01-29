@@ -1,0 +1,10 @@
+/* The <div> tag defines a division or a section in an HTML document. The <div> element is often used as a container for other HTML elements to style them with CSS or to perform certain tasks with JavaScript. */
+
+.tBox {
+   background: rgba(0, 0, 0, 0.3);
+   border-radius: 10px;
+   padding: 10px;
+   /*border: 10px solid rgba(0, 0, 0, 0.3); */
+}
+
+.tBox h4 { margin-block-start: -1em; }

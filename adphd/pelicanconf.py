@@ -89,7 +89,8 @@ PLUGIN_PATHS = [
 
 PLUGINS = [
         'ipynb.markup',
-        'pelican_plugin-render_math.render_math'
+        'pelican_plugin-render_math.render_math',
+        'pelican-css'
         ]
 
 # Sitemap
@@ -127,7 +128,10 @@ THEME = 'attila'
 HEADER_COVER = 'assets/images/page_header.jpg'
 
 DISPLAY_PAGES_ON_MENU = False
-DISLAY_THEMES_ON_MENU = True
+#DISLAY_THEMES_ON_MENU = True
+DISLAY_CATEGORIES_ON_MENU = True
+DEFAULT_CATEGORY = 'Miscellania'
+
 
 AUTHORS_BIO = {
     "victor": {
