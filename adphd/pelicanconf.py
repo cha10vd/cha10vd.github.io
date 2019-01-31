@@ -116,7 +116,8 @@ DISQUS_SITENAME = "adphd-1"
 
 # Equation-related options:
 MATH_JAX = {'align': 'left', 
-            'indent': '1em'}
+            'indent': '1em',
+            'extensions': ["color.js"]}
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True

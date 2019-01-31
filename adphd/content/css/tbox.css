@@ -1,10 +1,25 @@
-/* The <div> tag defines a division or a section in an HTML document. The <div> element is often used as a container for other HTML elements to style them with CSS or to perform certain tasks with JavaScript. */
+/* The <div> tag defines a division or a section in an HTML document. The <div> element is often used as a container for other HTML elements to style them with CSS or to perform certain tasks with JavaScript. 
+ * We use the custom CSS themes by adding a CSS field to the metadata with the path to the custom CSS file.
+ * Here we'd then have:
+ *
+ * CSS: tbox.css
+ *
+ * then, where we wish to add a textbox, we'd do:
+ *
+ * <div class="tBox"  markdown>
+ *  ...
+ * </div>
+ *
+ * */
 
 .tBox {
    background: rgba(0, 0, 0, 0.3);
    border-radius: 10px;
    padding: 10px;
+   margin: 2em 0;
    /*border: 10px solid rgba(0, 0, 0, 0.3); */
 }
 
-.tBox h4 { margin-block-start: -1em; }
+.tBox h4 { margin-top:      -1em; 
+           margin-botton:    10em 
+         }
