@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>Moments of Inertia</title>
+
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+  <link href="/" rel="canonical" />
+
+  <!-- Feed -->
+
+  <link href="/theme/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+      <link href="/theme/css/code_blocks/github.css" rel="stylesheet">
+
+
+        <link rel="stylesheet" href="/css/tbox.css" type="text/css">
+
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+  <link href="/2019/01/mom-inert.html" rel="canonical" />
+
+    <meta name="description" content="Deriving a molecule's moments of inertia from its mass distribution.">
+
+    <meta name="author" content="victor">
+
+    <meta name="tags" content="Classical Mechanics">
+    <meta name="tags" content="Molecular Properties">
+
+
+
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="AD(P)HD"/>
+<meta property="og:title" content="Moments of Inertia"/>
+<meta property="og:description" content="Deriving a molecule's moments of inertia from its mass distribution."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/2019/01/mom-inert.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-01-28 00:00:00+00:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/victor">
+  <meta property="article:publisher" content="https://www.facebook.com/vlnascimento" />
+<meta property="article:section" content="Classical Mechanics"/>
+<meta property="article:tag" content="Classical Mechanics"/>
+<meta property="article:tag" content="Molecular Properties"/>
+<meta property="og:image" content="/assets/images/page_header.jpg">
+
+<!-- Twitter Card -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "Moments of Inertia",
+  "headline": "Moments of Inertia",
+  "datePublished": "2019-01-28 00:00:00+00:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "victor",
+    "url": "/author/victor"
+  },
+  "image": "/assets/images/page_header.jpg",
+  "url": "/2019/01/mom-inert.html",
+  "description": "Deriving a molecule's moments of inertia from its mass distribution."
+}
+</script>
+</head>
+<!-- TODO : Body class -->
+<body class="home-template">
+
+<nav id="menu">
+  <a class="close-button">Close</a>
+  <div class="nav-wrapper">
+    <p class="nav-label">Menu</p>
+    <ul>
+
+                  <li class="nav-classical-mechanics active" role="presentation"><a href="/category/classical-mechanics">Classical Mechanics</a></li>
+                  <li role="presentation"><a href="/category/crystallography">Crystallography</a></li>
+                  <li role="presentation"><a href="/category/graphics">Graphics</a></li>
+                  <li role="presentation"><a href="/category/gui-programming">GUI Programming</a></li>
+                  <li role="presentation"><a href="/category/mathematics">Mathematics</a></li>
+                  <li role="presentation"><a href="/category/miscellania">Miscellania</a></li>
+                  <li role="presentation"><a href="/category/vim-scripting">Vim Scripting</a></li>
+
+    </ul>
+  </div>
+</nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="post-header" class="has-cover">
+      <div class="inner">
+        <nav id="navigation">
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <h1 class="post-title">Moments of Inertia</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="/author/victor">Victor Do Nascimento</a>
+            | <time datetime="28 Jan 2019">28 Jan 2019</time>
+        </span>
+        <!-- TODO : Modified check -->
+            <div class="post-cover cover" style="background-image: url('/assets/images/page_header.jpg')">
+      </div>
+    </header>
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+                <div class="math">$$
+    \renewcommand{\vec}[1]{\mathbf{#1}}
+$$</div>
+<div class="tBox">
+<p><h4> Matrix outer product: </h4>
+  <br>
+    The outer product is defined as thethe following vector product:
+    <div class="math">\begin{equation}
+        \vec{u} \otimes \vec{v} = \vec{u}\vec{v^T} = 
+        \begin{bmatrix}
+            x   \\  y   \\  z               \\
+        \end{bmatrix}
+        \begin{bmatrix}
+            x    &amp;  y   &amp;   z               \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            x^{2}   &amp;  xy       &amp; xz        \\
+            yx      &amp;  y^{2}    &amp; yz        \\ 
+            zx      &amp;  zy       &amp; z^{2}     \\
+        \end{bmatrix}
+    \end{equation}</div>
+</p>
+</div>
+<p>Let us consider a <strong>rigid body</strong> rotating with a fixed angular velocity <span class="math">\(\omega\)</span> about an axis
+passing through the origin, as illustated in fig.</p>
+<figure>
+  <img src="\..\assets\images\rigid_body.png" alt="Rigid body rotation" style="width:50%; margin-left: auto; margin-right: auto;" />
+  <figcaption> Rotating rigid body. </figcaption>
+</figure>
+
+<p>The angular momentum of te point given at <span class="math">\(\vec{r_{i}}\)</span> is then given by:</p>
+<div class="math">\begin{equation}
+    \label{angmom}
+    \frac{d\vec{r_{i}}}{dt} = \vec{w} \times \vec{r_{i}} \vec{V_{i}}
+\end{equation}</div>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "left",
+        indent = "1em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' }, Macros: {} }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=Moments of Inertia&amp;url=/2019/01/mom-inert.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=/2019/01/mom-inert.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url=/2019/01/mom-inert.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+                <aside class="post-tags">
+<a href="/tag/classical-mechanics">Classical Mechanics</a><a href="/tag/molecular-properties">Molecular Properties</a>                </aside>
+
+                <div class="clear"></div>
+
+                <aside class="post-author">
+
+
+                        <figure class="post-author-avatar">
+                            <img src="/assets/images/avatar.png" alt="Victor Do Nascimento" />
+                        </figure>
+                    <div class="post-author-bio">
+                        <h4 class="post-author-name"><a href="/author/victor">Victor Do Nascimento</a></h4>
+                            <p class="post-author-about">PhD Candidade in Theoretical and Computational Chemistry at the University of Southampton</p>
+                            <span class="post-author-location"><i class="ic ic-location"></i> Bournemouth</span>
+                        <!-- Social linkes in alphabet order. -->
+                            <span class="post-author-github"><a target="_blank" href="https://github.com/cha10vd"><i class="ic ic-link"></i> GitHub</a></span>
+                            <span class="post-author-linkedin"><a target="_blank" href="https://www.linkedin.com/in/https://www.linkedin.com/in/victor-luis-do-nascimento-38a493103/"><i class="ic ic-link"></i> LinkedIn</a></span>
+                    </div>
+                    <div class="clear"></div>
+                </aside>
+
+                </section>
+
+
+                <aside class="post-nav">
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
+
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+
+
+          <span class="credits-theme">Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a></span>
+          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
+        </section>
+      </div>
+    </footer>
+  </section>
+
+  <script type="text/javascript" src="/theme/js/script.js"></script>
+
+<script type="text/javascript">
+    var disqus_shortname = 'adphd-1';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

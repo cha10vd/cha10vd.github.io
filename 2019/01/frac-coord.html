@@ -14,16 +14,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="referrer" content="origin" />
   <meta name="generator" content="Pelican" />
-  <link href="https://cha10vd.github.io/" rel="canonical" />
+  <link href="/" rel="canonical" />
 
   <!-- Feed -->
-        <link href="https://cha10vd.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="AD(P)HD Full Atom Feed" />
-          <link href="https://cha10vd.github.io/feeds/{'slug': 'cryst'}.atom.xml" type="application/atom+xml" rel="alternate" title="AD(P)HD Categories Atom Feed" />
 
-  <link href="https://cha10vd.github.io/theme/css/style.css" type="text/css" rel="stylesheet" />
+  <link href="/theme/css/style.css" type="text/css" rel="stylesheet" />
 
   <!-- Code highlight color scheme -->
-      <link href="https://cha10vd.github.io/theme/css/code_blocks/github.css" rel="stylesheet">
+      <link href="/theme/css/code_blocks/github.css" rel="stylesheet">
+
+
 
 
   <!-- Custom fonts -->
@@ -38,12 +38,14 @@
   <![endif]-->
 
 
-  <link href="https://cha10vd.github.io/2019/01/frac-coord.html" rel="canonical" />
+  <link href="/2019/01/frac-coord.html" rel="canonical" />
 
-    <meta name="description" content="Working in Fractional Coordinates $$ \renewcommand{\vec}[1]{\mathbf{#1}} \newcommand{\eucnorm}[1]{\left|\mathbf{#1}\right|}...">
+    <meta name="description" content="Formulation of interconversion between Fractional and Cartesian coordinates.">
 
     <meta name="author" content="victor">
 
+    <meta name="tags" content="Linear Algebra">
+    <meta name="tags" content="Crystallography">
 
 
 
@@ -51,16 +53,18 @@
 <!-- Open Graph -->
 <meta property="og:site_name" content="AD(P)HD"/>
 <meta property="og:title" content="The Fractional Coordinate System"/>
-<meta property="og:description" content="Working in Fractional Coordinates $$ \renewcommand{\vec}[1]{\mathbf{#1}} \newcommand{\eucnorm}[1]{\left|\mathbf{#1}\right|}..."/>
+<meta property="og:description" content="Formulation of interconversion between Fractional and Cartesian coordinates."/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="https://cha10vd.github.io/2019/01/frac-coord.html"/>
+<meta property="og:url" content="/2019/01/frac-coord.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2019-01-21 00:00:00+00:00"/>
 <meta property="article:modified_time" content=""/>
-<meta property="article:author" content="https://cha10vd.github.io/author/victor">
+<meta property="article:author" content="/author/victor">
   <meta property="article:publisher" content="https://www.facebook.com/vlnascimento" />
-<meta property="article:section" content="cryst"/>
-<meta property="og:image" content="https://cha10vd.github.io/assets/images/page_header.jpg">
+<meta property="article:section" content="Crystallography"/>
+<meta property="article:tag" content="Linear Algebra"/>
+<meta property="article:tag" content="Crystallography"/>
+<meta property="og:image" content="/assets/images/page_header.jpg">
 
 <!-- Twitter Card -->
 
@@ -75,11 +79,11 @@
   "author": {
     "@type": "Person",
     "name": "victor",
-    "url": "https://cha10vd.github.io/author/victor"
+    "url": "/author/victor"
   },
-  "image": "https://cha10vd.github.io/assets/images/page_header.jpg",
-  "url": "https://cha10vd.github.io/2019/01/frac-coord.html",
-  "description": "Working in Fractional Coordinates $$ \renewcommand{\vec}[1]{\mathbf{#1}} \newcommand{\eucnorm}[1]{\left|\mathbf{#1}\right|}..."
+  "image": "/assets/images/page_header.jpg",
+  "url": "/2019/01/frac-coord.html",
+  "description": "Formulation of interconversion between Fractional and Cartesian coordinates."
 }
 </script>
 </head>
@@ -92,8 +96,13 @@
     <p class="nav-label">Menu</p>
     <ul>
 
-                  <li class="nav-cryst active" role="presentation"><a href="https://cha10vd.github.io/category/cryst">cryst</a></li>
-                  <li role="presentation"><a href="https://cha10vd.github.io/category/misc">misc</a></li>
+                  <li role="presentation"><a href="/category/classical-mechanics">Classical Mechanics</a></li>
+                  <li class="nav-crystallography active" role="presentation"><a href="/category/crystallography">Crystallography</a></li>
+                  <li role="presentation"><a href="/category/graphics">Graphics</a></li>
+                  <li role="presentation"><a href="/category/gui-programming">GUI Programming</a></li>
+                  <li role="presentation"><a href="/category/mathematics">Mathematics</a></li>
+                  <li role="presentation"><a href="/category/miscellania">Miscellania</a></li>
+                  <li role="presentation"><a href="/category/vim-scripting">Vim Scripting</a></li>
 
     </ul>
   </div>
@@ -109,7 +118,7 @@
       <div class="inner">
         <nav id="navigation">
             <span id="home-button" class="nav-button">
-                <a class="home-button" href="https://cha10vd.github.io/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+                <a class="home-button" href="/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
             </span>
           <span id="menu-button" class="nav-button">
             <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
@@ -118,11 +127,11 @@
         <h1 class="post-title">The Fractional Coordinate System</h1>
         <!-- TODO : Proper class for headline -->
         <span class="post-meta">
-                <a href="https://cha10vd.github.io/author/victor">Victor Do Nascimento</a>
+                <a href="/author/victor">Victor Do Nascimento</a>
             | <time datetime="21 Jan 2019">21 Jan 2019</time>
         </span>
         <!-- TODO : Modified check -->
-            <div class="post-cover cover" style="background-image: url('https://cha10vd.github.io/assets/images/page_header.jpg')">
+            <div class="post-cover cover" style="background-image: url('/assets/images/page_header.jpg')">
       </div>
     </header>
 
@@ -139,15 +148,18 @@
     \renewcommand{\vec}[1]{\mathbf{#1}}
     \newcommand{\eucnorm}[1]{\left|\mathbf{#1}\right|}
     \newcommand{\veccomp}[1]{({#1}_{x}, {#1}_{y}, {#1}_{z})}
+    \newcommand{\subsup}[3]{#1_{#2}^{#3}}
+    \let\oldref\ref
+    \renewcommand{\ref}[1]{(\oldref{#1})}
 $$</div>
 <p>In describing a physical system, one usually has many choices as to the coordinate system in which 
 to formulate a problem, and intuitively it makes sense to choose one in which we may exploit the 
 natural symmetry of the system.</p>
 <p>A coordinate system is composed of an <em>origin</em> and a <em>basis</em> of three linearly independent (non-coplanar) 
 basis vectors <span class="math">\(\vec{a}, \vec{b}, \vec{c}\)</span>.</p>
-<p>Just as for problems with spherical symmetry we move from cartesian to polar coordinates, there is 
+<p>Just as for problems with spherical symmetry we move from Cartesian to polar coordinates, there is 
 likewise a particular coordinate system especially suited for dealing with non-orthogonal repeating
-systems.  This is the <em>fractional coordinate system</em>.</p>
+systems. This is the <em>fractional coordinate system</em>.</p>
 <p>The idea here is to take three vectors which connect repeats in our infinitely repeating system and
 use these as our basis vectors for representing space. In our fractional coordinates our basis is 
 given by <span class="math">\(a,b,c\)</span>, as opposed to <span class="math">\(x,y,z\)</span>. These will have mutual angles of <span class="math">\(\alpha, \beta, \gamma\)</span>.</p>
@@ -157,28 +169,157 @@ given by <span class="math">\(a,b,c\)</span>, as opposed to <span class="math">\
 </figure>
 
 <p>The question then becomes: <strong>How is this coordinate system connectected to the one we're acustomed to?</strong></p>
+<h3>Cartesian components of fractional basis vectors</h3>
 <p>If we imagine the "box" formed from the three vectors in each coordinate system, we can start
 by simply aligning one of the fractional vectors to one of its Cartesian counterparts, giving them 
 a one-to-one correspondence. We set <em>a</em> to lie along the positive x-axis direction and choose <em>b</em> 
 to lie in the <em>x,y</em>-plane, givings us the following relations:</p>
 <div class="math">\begin{equation}
     \label{veca}
-    \vec{a} = (a,0,0)
+    \vec{a} = (\eucnorm{a},0,0)
 \end{equation}</div>
 <div class="math">\begin{equation}
     \label{vecb}
-    \vec{b} = (b\ cos(x), b\  sin(y), 0)
+    \vec{b} = (\eucnorm{b}\cos(\gamma), \eucnorm{b}\sin(\gamma), 0)
 \end{equation}</div>
 <p>Having used up all our degrees of freedom, <em>c</em> is constrained by the directions of <em>a</em> and <em>b</em> and
 the angles it makes with them.</p>
-<div class="math">\begin{equation}
-    \label{cdota}
-    \vec{c} \cdot  \vec{a} = \eucnorm{a}\ \eucnorm{c}\ cos(\beta) = a\  c_{x}
-\end{equation}</div>
 <div class="math">\begin{align}
-        \vec{c} \cdot  \vec{b}  &amp;= \eucnorm{b}  \eucnorm{c}  cos(\alpha) \\
-                                &amp;= \veccomp{c} \\
+    \label{cdota}
+    \vec{c} \cdot  \vec{a}  &amp;= \eucnorm{a}  \eucnorm{c}\ cos(\beta) \\ \nonumber
+                            &amp;= \eucnorm{a}\  c_{x}                  \\
 \end{align}</div>
+<div class="math">\begin{align}
+    \vec{c} \cdot  \vec{b}  &amp;= \eucnorm{b}  \eucnorm{c}  cos(\alpha)                         \label{cdotb1}  \\ 
+                            &amp;= \veccomp{c} (\eucnorm{b}\cos(\gamma), \eucnorm{b}\sin(\gamma), 0)  \nonumber  \\ 
+                            &amp;= c_{x} \eucnorm{b}\cos(\gamma) + c_y \eucnorm{b}\sin(\gamma)   \label{cdotb2}  \\
+\end{align}</div>
+<div class="math">\begin{equation}
+    \label{cdotc}
+    \vec{c} \cdot \vec{c}    = \eucnorm{c}^{2} = \subsup{c}{x}{2} + \subsup{c}{y}{2}, + \subsup{c}{z}{2}
+\end{equation}</div>
+<p>from equations <span class="math">\(\ref{veca}\)</span> through to <span class="math">\(\ref{cdotc}\)</span> we can deduce the identities of the cartesian components of <span class="math">\(\vec{c}\)</span>.</p>
+<p>The cancellation of factors of <span class="math">\(\eucnorm{a}\)</span> in eq. \ref{cdota} results in an expression for <span class="math">\(c_{x}\)</span>.</p>
+<div class="math">\begin{equation}
+    \label{cx}
+    c_x = \eucnorm{c} cos(\beta)
+\end{equation}</div>
+<p>In deriving <span class="math">\(c_{y}\)</span>, we combine equations \ref{cdotb1} and \ref{cdotb2} as follows:</p>
+<div class="math">\begin{equation}
+    \eucnorm{b} \eucnorm{c} cos(\alpha) = c_{x} \eucnorm{b}\cos(\gamma) + c_{y} \eucnorm{b}\sin(\gamma), \nonumber
+\end{equation}</div>
+<p>cancelling the common factor of <span class="math">\(\eucnorm{b}\)</span>, rearranging and finally subbing in eq. \ref{cx} the to yield:</p>
+<div class="math">\begin{equation}
+    \label{cy}
+    c_{y} = \eucnorm{c} \frac{cos(\alpha) - \cos(\beta) \cos(\gamma)}{sin(\gamma)}                           \\
+\end{equation}</div>
+<p>Having established <span class="math">\(c_{x}\)</span> and <span class="math">\(c_{y}\)</span>, we may insert these into our equation for the square of the
+Euclidean norm of the <span class="math">\(\vec{c}\)</span> vector, as per eq. <span class="math">\(\ref{cdotc}\)</span>, rearranging for <span class="math">\(c_{z}^{2}\)</span>:</p>
+<div class="math">\begin{align}
+  \label{czsq}
+    c_{z}^{2} &amp; = \eucnorm{c}^{2} - c_{x}^{2} - c_{y}^{2} \nonumber \\
+              &amp; = \eucnorm{c}^{2} \Bigg\{ 1 - cos^{2}(\beta) - \frac{[cos(\alpha)-cos(\beta)cos(\gamma)]^2}
+                                                         {sin^{2}(\gamma)}  \Bigg\} \nonumber \\
+              &amp; = \eucnorm{c}^{2} \Bigg\{\frac{\sin^{2}(\gamma)
+                                     - cos^{2}(\beta) sin^{2}(\gamma) 
+                                     - [cos(\alpha)-cos(\beta)cos(\gamma)]^2}
+                                    {sin^{2}(\gamma)}  \Bigg\} \\
+\end{align}</div>
+<p>At this point we shift our focus to the numerator as we aim to simplify the myriad of trigonometric 
+terms using basic trig identities. we expand out the square brackets to give us a resulting numerator of:</p>
+<div class="math">\begin{align}
+    \sin^{2}(\gamma) &amp; - cos^{2}(\beta) sin^{2}(\gamma) - cos^{2}(\alpha) \nonumber \\
+                     &amp; + 2cos(\alpha) cos(\beta)cos(\gamma) - cos^2(\beta) cos^2(\gamma)
+\end{align}</div>
+<p>The first simplification is: <span class="math">\(cos^{2}(\theta) + sin^{2}(\theta) = 1\)</span>, which we get from pythagoras.</p>
+<div class="math">\begin{alignat}{2}
+  cos^{2}(\beta) sin^{2}(\gamma) +  cos^2(\beta) cos^2(\gamma) &amp; = [sin^{2}(\gamma) +  cos^2(\gamma)] &amp;&amp;\, cos^2(\beta) \nonumber \\
+                                                               &amp; =                                    &amp;&amp;\, cos^2(\beta)
+\end{alignat}</div>
+<p>Plugging this back into our equation leaves us with:</p>
+<div class="math">\begin{align}
+    \sin^{2}(\gamma) &amp; - cos^{2}(\beta) - cos^{2}(\alpha) + 2cos(\alpha)cos(\beta)cos(\gamma)
+\end{align}</div>
+<p>Finally, as far as second-order terms go, we have two negative square cosines and a positive square sine.
+by the identity <span class="math">\(sin^{2}(\theta) = 1 - cos^{2}(\theta)\)</span>, we make all second-order terms into negative cosines.</p>
+<div class="math">\begin{align}
+    1 - \cos^{2}(\alpha) &amp; - cos^{2}(\beta) - cos^{2}(\gamma) + 2cos(\alpha)cos(\beta)cos(\gamma)
+\end{align}</div>
+<p>We plug back into our equation for <span class="math">\(c_{z}^{2}\)</span> to get:</p>
+<div class="math">\begin{align}
+  \label{cz}
+    c_{z}^{2} &amp; = \eucnorm{c}^{2} \frac{1 - \cos^{2}(\alpha)  - cos^{2}(\beta) - cos^{2}(\gamma) + 2cos(\alpha)cos(\beta)cos(\gamma)}
+                             {sin^{2}(\gamma)} \\
+\end{align}</div>
+<div class="math">\begin{alignat}{2}
+  c_{z}          &amp; = \frac{\eucnorm{c}}{sin(\gamma)} (1 - cos^{2}(\alpha) &amp;&amp;  - cos^{2}(\beta) - cos^{2}(\gamma) \nonumber \\
+  \label{zcompc} &amp;                                                        &amp;&amp;  + 2cos(\alpha)cos(\beta)cos(\gamma))^{1/2} \\
+\end{alignat}</div>
+<h3>Cell surfaces, volumes and Cartesian components of an arbitrary vectors in fractional space</h3>
+<p>We have now formulated the Cartesian components of vectors <span class="math">\(\vec{a}, \vec{b}, \vec{c}\)</span>, we can calculate the volume of our cell.
+we can take the surface area of our base using the cross product:</p>
+<div class="math">\begin{equation}
+  \sigma_{c} = \vec{a} \times \vec{b}
+\end{equation}</div>
+<p>the volume is then derived by taking the perpendicular component of the remaining vector with respect to the base:</p>
+<div class="math">\begin{equation}
+  \Omega = \sigma_{c} \cdot \vec{c}
+\end{equation}</div>
+<p>Now suppose we do the dot-product of our base surface area with an arbitrary vector in fractional coordinate space:</p>
+<div class="math">\begin{equation}
+  \vec{r} \cdot \sigma_{c} = u\vec{a} \cdot \sigma_{c} + v\vec{b} \cdot \sigma_{c} + w\vec{c} \cdot \sigma_{c}
+\end{equation}</div>
+<p>Now, by the definition of <span class="math">\(\rho_{c}\)</span>, the first two terms in our dot product evaluate to 0 ans we're left with:</p>
+<div class="math">\begin{align}
+  \vec{r} \cdot \sigma_{c} &amp; =  w\vec{c} \cdot \sigma_{c} \nonumber \\
+                         &amp; =  w \Omega                \\
+  w &amp; = \frac{1}{\Omega} \vec{r} \cdot \sigma_{c}         \nonumber \\
+\end{align}</div>
+<p>Now by the simple permutation of indices, we get the further relations:</p>
+<div class="math">\begin{align}
+  \label{xcompr} u &amp; = \frac{1}{\Omega} \vec{r} \cdot \sigma_{a} \\
+  \label{ycompr} v &amp; = \frac{1}{\Omega} \vec{r} \cdot \sigma_{b} \\
+  \label{zcompr} w &amp; = \frac{1}{\Omega} \vec{r} \cdot \sigma_{c}
+\end{align}</div>
+<p>and derive the cartesian components of a vector in the fractional space of a  lattice.</p>
+<h3>Breaking down the volume of a unit cell into length and angle components</h3>
+<p>We have now derived all geometric parameters of interest regarding our coordinate system. We can express
+the unit-cell in terms of the surface area of the base formed by vectos <span class="math">\(\vec{a}\)</span> and <span class="math">\(\vec{b}\)</span>, dotted 
+with the remaining vector: <span class="math">\(\sigma_{c} \cdot \vec{c}\)</span>.</p>
+<p>This gives us:</p>
+<div class="math">\begin{align}
+  \Omega &amp; = \vec{c} \cdot \sigma_{c} \nonumber \\
+         &amp; = c_z \eucnorm{\sigma_{c}}
+\end{align}</div>
+<p>we substitute <span class="math">\(c_{z}\)</span> for eqn. <span class="math">\(\ref{zcompc}\)</span> and subsitute in the definition for the magnitude of the 
+cross-product:</p>
+<div class="math">\begin{alignat}{3}
+  \Omega           &amp; = c_z \eucnorm{\sigma_{c}}  &amp;&amp; = \eucnorm{a} \eucnorm{b} \eucnorm{c} (1 - cos^{2}(\alpha) &amp;&amp;&amp;  - cos^{2}(\beta) - cos^{2}(\gamma) \nonumber \\
+  \label{crystvol} &amp;                             &amp;&amp;                                                            &amp;&amp;&amp;  + 2cos(\alpha)cos(\beta)cos(\gamma))^{1/2} \\
+\end{alignat}</div>
+<p><span class="math">\(\eucnorm{a} \eucnorm{b} \eucnorm{c}\)</span> constitutes the <strong>length-component</strong> of the volume of our 
+unit-cell, and translates to the volume the cell would have if our basis vectors were orthogonal.</p>
+<p>The effect on volume accounter for by the system's non-orthogonality is then given by:</p>
+<div class="math">\begin{equation*}
+  \eucnorm{a} \eucnorm{b} \eucnorm{c} - \Omega
+\end{equation*}</div>
+<p>or:</p>
+<div class="math">\begin{alignat}{3}
+  \eucnorm{a} \eucnorm{b} \eucnorm{c} (cos^{2}(\alpha) &amp;  + cos^{2}(\beta) + cos^{2}(\gamma) \nonumber \\
+                                                       &amp;  - 2cos(\alpha)cos(\beta)cos(\gamma))^{1/2} \\
+\end{alignat}</div>
+<p>Which constitutes the <strong>angle-component</strong> of the system.</p>
+<h3>Matrices for coordinate-system interconversion</h3>
+<p>The keen observer will have realised that the matrix for conversion from fractional coordinates to 
+Cartesian coordinates is implicit in equations \ref{xcompr} - \ref{zcompr}.</p>
+<div class="math">\begin{equation}
+  \begin{bmatrix} x \\ y \\ z \end{bmatrix} = 
+  \begin{bmatrix} a &amp; b cos(\gamma ) &amp; c cos(\beta)                                               \\ 
+                  0 &amp; b sin(\gamma)  &amp; c \frac{cos(\alpha)-cos(\beta) cos(\gamma)}{sin(\gamma)} \\
+                  0 &amp; 0              &amp; \frac{\Omega}{ab sin(\gamma)}
+  \end{bmatrix}
+  \begin{bmatrix} u \\ v \\ w \end{bmatrix}
+\end{equation}</div>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "left",
         indent = "1em",
@@ -240,18 +381,20 @@ the angles it makes with them.</p>
 
             <section class="post-info">
                 <div class="post-share">
-                    <a class="twitter" href="https://twitter.com/share?text=The Fractional Coordinate System&amp;url=https://cha10vd.github.io/2019/01/frac-coord.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <a class="twitter" href="https://twitter.com/share?text=The Fractional Coordinate System&amp;url=/2019/01/frac-coord.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
                     </a>
-                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://cha10vd.github.io/2019/01/frac-coord.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=/2019/01/frac-coord.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                     <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
                     </a>
-                    <a class="googleplus" href="https://plus.google.com/share?url=https://cha10vd.github.io/2019/01/frac-coord.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <a class="googleplus" href="https://plus.google.com/share?url=/2019/01/frac-coord.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                     <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
                     </a>
                     <div class="clear"></div>
                 </div>
 
+                <aside class="post-tags">
+<a href="/tag/linear-algebra">Linear Algebra</a><a href="/tag/crystallography">Crystallography</a>                </aside>
 
                 <div class="clear"></div>
 
@@ -259,10 +402,10 @@ the angles it makes with them.</p>
 
 
                         <figure class="post-author-avatar">
-                            <img src="https://cha10vd.github.io/assets/images/avatar.png" alt="Victor Do Nascimento" />
+                            <img src="/assets/images/avatar.png" alt="Victor Do Nascimento" />
                         </figure>
                     <div class="post-author-bio">
-                        <h4 class="post-author-name"><a href="https://cha10vd.github.io/author/victor">Victor Do Nascimento</a></h4>
+                        <h4 class="post-author-name"><a href="/author/victor">Victor Do Nascimento</a></h4>
                             <p class="post-author-about">PhD Candidade in Theoretical and Computational Chemistry at the University of Southampton</p>
                             <span class="post-author-location"><i class="ic ic-location"></i> Bournemouth</span>
                         <!-- Social linkes in alphabet order. -->
@@ -274,17 +417,6 @@ the angles it makes with them.</p>
 
                 </section>
 
-                <script type="text/javascript">
-                    var disqus = 'adphd-1';
-                    var disqus_shortname = 'adphd-1';
-                    var disqus_identifier = '/2019/01/frac-coord.html';
-                    var disqus_url = 'https://cha10vd.github.io/2019/01/frac-coord.html';
-                </script>
-                <noscript>Please enable JavaScript to view the comments.</noscript>
-                <section class="post-comments">
-                        <a id="show-disqus" class="post-comments-activate" data-disqus-identifier="/2019/01/frac-coord.html" >Show Comments</a>
-                    <div id="disqus_thread"></div>
-                </section>
 
                 <aside class="post-nav">
                     <div class="clear"></div>
@@ -308,7 +440,7 @@ the angles it makes with them.</p>
     </footer>
   </section>
 
-  <script type="text/javascript" src="https://cha10vd.github.io/theme/js/script.js"></script>
+  <script type="text/javascript" src="/theme/js/script.js"></script>
 
 <script type="text/javascript">
     var disqus_shortname = 'adphd-1';

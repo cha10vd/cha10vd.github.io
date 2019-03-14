@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>Intro to Tensors</title>
+
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+  <link href="/" rel="canonical" />
+
+  <!-- Feed -->
+
+  <link href="/theme/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+      <link href="/theme/css/code_blocks/github.css" rel="stylesheet">
+
+
+
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+  <link href="/2019/01/intro-tensor.html" rel="canonical" />
+
+    <meta name="description" content="$$ \renewcommand{\r}[0]{\color{red}} \renewcommand{\g}[0]{\color{green}} \renewcommand{\b}[0]{\color{blue}}...">
+
+    <meta name="author" content="victor">
+
+    <meta name="tags" content="Tensors">
+    <meta name="tags" content="Mathematics">
+
+
+
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="AD(P)HD"/>
+<meta property="og:title" content="Intro to Tensors"/>
+<meta property="og:description" content="$$ \renewcommand{\r}[0]{\color{red}} \renewcommand{\g}[0]{\color{green}} \renewcommand{\b}[0]{\color{blue}}..."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/2019/01/intro-tensor.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-01-30 00:00:00+00:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/victor">
+  <meta property="article:publisher" content="https://www.facebook.com/vlnascimento" />
+<meta property="article:section" content="Mathematics"/>
+<meta property="article:tag" content="Tensors"/>
+<meta property="article:tag" content="Mathematics"/>
+<meta property="og:image" content="/assets/images/page_header.jpg">
+
+<!-- Twitter Card -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "Intro to Tensors",
+  "headline": "Intro to Tensors",
+  "datePublished": "2019-01-30 00:00:00+00:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "victor",
+    "url": "/author/victor"
+  },
+  "image": "/assets/images/page_header.jpg",
+  "url": "/2019/01/intro-tensor.html",
+  "description": "$$ \renewcommand{\r}[0]{\color{red}} \renewcommand{\g}[0]{\color{green}} \renewcommand{\b}[0]{\color{blue}}..."
+}
+</script>
+</head>
+<!-- TODO : Body class -->
+<body class="home-template">
+
+<nav id="menu">
+  <a class="close-button">Close</a>
+  <div class="nav-wrapper">
+    <p class="nav-label">Menu</p>
+    <ul>
+
+                  <li role="presentation"><a href="/category/classical-mechanics">Classical Mechanics</a></li>
+                  <li role="presentation"><a href="/category/crystallography">Crystallography</a></li>
+                  <li role="presentation"><a href="/category/graphics">Graphics</a></li>
+                  <li role="presentation"><a href="/category/gui-programming">GUI Programming</a></li>
+                  <li class="nav-mathematics active" role="presentation"><a href="/category/mathematics">Mathematics</a></li>
+                  <li role="presentation"><a href="/category/miscellania">Miscellania</a></li>
+                  <li role="presentation"><a href="/category/vim-scripting">Vim Scripting</a></li>
+
+    </ul>
+  </div>
+</nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="post-header" class="has-cover">
+      <div class="inner">
+        <nav id="navigation">
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <h1 class="post-title">Intro to Tensors</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="/author/victor">Victor Do Nascimento</a>
+            | <time datetime="30 Jan 2019">30 Jan 2019</time>
+        </span>
+        <!-- TODO : Modified check -->
+            <div class="post-cover cover" style="background-image: url('/assets/images/page_header.jpg')">
+      </div>
+    </header>
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+                <div class="math">$$
+  \renewcommand{\r}[0]{\color{red}}
+  \renewcommand{\g}[0]{\color{green}}
+  \renewcommand{\b}[0]{\color{blue}}
+  \renewcommand{\unit}[1]{\mathbf{\hat{#1}}}
+$$</div>
+<p>What is a tensor? Is it just a glorified matrix? If not, how do we tell the two appart? To the
+neophyte, it's all very confusing, which is why we wish to shed light on some of these 
+fundamental questions.</p>
+<p>The website <a href="http://www.continuummechanics.org/">continuummechanics.org</a> has a list of
+some fundamental facts:</p>
+<ul>
+<li>If it's a physical quantity, like stress, then it's usually called a tensor. 
+  If it's not a physical quantity, then it's usually called a matrix.</li>
+<li>The vast majority of tensors are symmetric. One common quantity that is not symmetric, 
+  and not referred to as a tensor, is a rotation matrix.</li>
+<li>Tensors are in fact any physical quantity that can be represented by a scalar, vector, or matrix. <ul>
+<li>Zero-order tensors, like mass, are called scalars, </li>
+<li>First-order tensors are called vectors. </li>
+<li>Higher-order tensors include stress, strain, and stiffness tensors.</li>
+</ul>
+</li>
+<li>The order, or rank, of a matrix or tensor is the number of subscripts it contains. 
+  A vector is a 1st rank tensor. A 3x3 stress tensor is 2nd rank</li>
+</ul>
+<h3>Tensor notation for familiar concepts:</h3>
+<h5>The vector dot-product and the summation convention</h5>
+<p>Tensor notation, interestingly, translates to how loops are written in programming.</p>
+<p>Consider the tensor representation of the dot-product:</p>
+<div class="math">\begin{equation}
+    a_i b_i \equiv a_1 b_1 + a_2 b_2 + a_3 b_3
+\end{equation}</div>
+<p>any index equates to a loop counter iterating from 1 to 3. Where the index is repeated, it should
+also be summed over.  Here the <span class="math">\(i\)</span> is repeated, so in Python the dot product would read:</p>
+<div class="highlight"><pre><span></span><span class="n">dot_prod</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">dot_prod</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
+
+
+<p>We shall see that this arbitrarily simple example holds true for more complex calculations.</p>
+<p>In looking at how tensor notation refers to entries in a matrix, we'll call our generic matrix <strong>A</strong>
+and refer to the entry in the <span class="math">\(i^{th}\)</span> row and <span class="math">\(j^{th}\)</span> column as <span class="math">\(A_{ij}\)</span>.</p>
+<h5>Identity matrix:</h5>
+<p>The only non-zero elements in an identity matrix are ones where the index <span class="math">\(i\)</span> and index <span class="math">\(j\)</span> are equal.
+We may therefore represent an identity matrix in terms of a condition imposed upon its indexes:</p>
+<div class="math">\begin{equation}
+    \label{kroneck}
+    A_{ij} =
+    \begin{cases}
+            1, &amp;         \text{if } i=j,\\
+            0, &amp;         \text{if } i\neq j.
+    \end{cases}
+\end{equation}</div>
+<p>And what we have is the <strong>Kronecker delta</strong>. Therefore, the identity matrix is represented by <span class="math">\(\delta_{ij}\)</span>.</p>
+<h5>Matrix transpose:</h5>
+<p>Simply put, in transposing <strong>A</strong>, we interchange columns and rows. Therefore we have:</p>
+<div class="math">\begin{equation}
+    \label{tenstrans}
+    (A_{ij})^{T} = A_{ji}
+\end{equation}</div>
+<h5>Matrix determinant:</h5>
+<p>Consider the determinant of a <span class="math">\(3\times3\)</span> matrix:</p>
+<div class="math">\begin{align*}
+  | {\bf A} | = &amp;
+  \left|
+  \matrix {
+   A_{11} &amp; A_{12} &amp; A_{13} \\
+   A_{21} &amp; A_{22} &amp; A_{23} \\
+   A_{31} &amp; A_{32} &amp; A_{33}
+  } \right| \\
+   \\
+  = &amp; A_{11} ( A_{22} A_{33} - A_{23} A_{32} ) + \\
+    &amp; A_{12} ( A_{23} A_{31} - A_{21} A_{33} ) + \\
+    &amp; A_{13} ( A_{21} A_{32} - A_{22} A_{31} ) \\
+   \\
+  = &amp; A_{\r 11} A_{\g 22} A_{\b 33} - A_{\r 11} A_{\g 23} A_{\b 32} + \\
+    &amp; A_{\r 12} A_{\g 23} A_{\b 31} - A_{\r 12} A_{\g 21} A_{\b 33} + \\
+    &amp; A_{\r 13} A_{\g 21} A_{\b 32} - A_{\r 13} A_{\g 22} A_{\b 31}
+\end{align*}</div>
+<p>We see that the <strong>+</strong>'s and <strong>-</strong>'s in the determinant equation alternate in line with how many permutations are
+needed to rearrange the <span class="math">\(j^{th}\)</span> indices in <span class="math">\(A_{ij}\)</span> of a given permutation away from the standard <span class="math">\(1,2,3\)</span> ordering.</p>
+<p>In light of this fact, tensor analysis introduces a symbol whose function is homologous to that of the kronecker
+delta for the identity matrix. It returns a value based on the identities of <span class="math">\(i\)</span>, <span class="math">\(j\)</span> and <span class="math">\(k\)</span>. We thus present the
+Levi-Civita symbol, <span class="math">\(\epsilon_{ijk}\)</span>:</p>
+<div class="math">\begin{equation}
+  \label{lev-civ}
+  \epsilon_{ijk}
+  \begin{cases}
+      +1, &amp;   \text{if } (i,j,k) \text{ is } (1,2,3),(2,3,1) \text{, or } (3,1,2), \\
+      -1, &amp;   \text{if } (i,j,k) \text{ is } (3,2,1),(1,3,2) \text{, or } (3,1,2), \\
+    \;0, &amp;   \text{if } i = j \text{ or } j=k \text{, or } k=i
+  \end{cases}
+\end{equation}</div>
+<p>a useful diagramatic representation of this is presented below:</p>
+<figure>
+  <img src="/../assets/images/math/permutation_indices_3d_numerical.png", alt="", style="width:50%; margin-left: auto; margin-right: auto;"/>
+  <figcaption>Even permutations are given by the orange cycle, odd, by the red.</figcaption>
+</figure>
+
+<p>We can thus prepend the matrix-element multiplications in our determinant equation by <span class="math">\(\epsilon_{ijk}\)</span>, 
+leaving us with a simple sum:</p>
+<div class="math">\begin{align}
+  | {\bf A} |
+  = &amp; \epsilon_{123} A_{\r 11} A_{\g 22} A_{\b 33} + \epsilon_{132} A_{\r 11} A_{\g 23} A_{\b 32} + \nonumber \\
+    &amp; \epsilon_{231} A_{\r 12} A_{\g 23} A_{\b 31} + \epsilon_{213} A_{\r 12} A_{\g 21} A_{\b 33} + \nonumber \\
+    &amp; \epsilon_{312} A_{\r 13} A_{\g 21} A_{\b 32} + \epsilon_{321} A_{\r 13} A_{\g 22} A_{\b 31}
+\end{align}</div>
+<p>Finally, we collapse this large sum into the compact tensor notation:</p>
+<div class="math">\begin{equation}
+  | {\bf A} | = \epsilon_{ijk}A_{1i}A_{2j}A_{3k}
+\end{equation}</div>
+<p>or, by the determinant's invariance over transposition of the matrix:</p>
+<div class="math">\begin{equation}
+  | {\bf A} | = \epsilon_{ijk}A_{i1}A_{j2}A_{k3}
+\end{equation}</div>
+<p>Here all three indices appear twice in the tensor representation. Therefore, if we were to write a
+python loop we would have:</p>
+<div class="highlight"><pre><span></span><span class="n">detA</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+      <span class="n">detA</span> <span class="o">+=</span> <span class="n">LeviCivita</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">k3</span><span class="p">]</span>
+</pre></div>
+
+
+<p>We can equally imagine a simple implementation of the Levi-Civita fucntion:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">LeviCivita</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+  <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">,</span> <span class="n">i</span> <span class="o">==</span> <span class="n">k</span><span class="p">,</span> <span class="n">j</span> <span class="o">==</span> <span class="n">k</span><span class="p">]):</span>  
+    <span class="k">return</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+  <span class="n">indices</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">]</span>
+  <span class="n">start</span>   <span class="o">=</span> <span class="n">indices</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+  <span class="k">if</span> <span class="n">indices</span><span class="p">[(</span><span class="n">start</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="k">return</span><span class="p">(</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">return</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<h5>The cross-product</h5>
+<div class="math">\begin{align}
+  \label{tensorCross}
+    \vec{a} \times \vec{b} = \vec{c} = &amp; 
+    \left[
+    \matrix{
+        \unit{x} &amp; \unit{y} &amp; \unit{z}                  \\
+        a_{x} &amp; a_{y} &amp; a_{z}                           \\
+        b_{x} &amp; b_{y} &amp; b_{z}
+    }
+    \right]\\
+    \nonumber \\
+     = &amp; \unit{x}(a_{y}b_{z} - a_{z}b_{y}) + \nonumber  \\
+       &amp; \unit{y}(a_{z}b_{x} - a_{x}b_{z}) + \nonumber  \\
+       &amp; \unit{x}(a_{x}b_{y} - a_{y}b_{x})              \\
+    \nonumber \\
+  c_{i} = &amp; \epsilon_{ijk}a_{j}b_{k}
+\end{align}</div>
+<p>We once againask ourselves how the tensor notation translates to code. We have three indices, <span class="math">\(i,j\)</span>
+and <span class="math">\(k\)</span>. We therefore expect three nested loops. <span class="math">\(j\)</span> and <span class="math">\(k\)</span> each appear twice, so these must be
+summed over.</p>
+<div class="highlight"><pre><span></span><span class="n">cVec</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Cross product vector</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+      <span class="n">cVec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">LeviCivita</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="o">*</span> <span class="n">aVec</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">bVec</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+</pre></div>
+
+
+<h5>The Vector Diadic Product</h5>
+<p>After a few examples of deriving tensor notation, we should be pretty good at this. The vector diadic
+product is nothing other than the outer product. from two <span class="math">\(3\times1\)</span> vectors we get a <span class="math">\(3\times3\)</span> matrix.</p>
+<div class="math">\begin{equation}
+  \label{diad}
+    C_{ij} = a_{i}b_{j}
+\end{equation}</div>
+<p>There's no repetition of indices, so there's no summation and each term in the nested loops will give rise
+to a new term in our resulting matrix.</p>
+<div class="highlight"><pre><span></span><span class="n">diadProd</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">diadProd</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">aVec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">aVec</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</pre></div>
+
+
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "left",
+        indent = "1em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' }, Macros: {} }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=Intro to Tensors&amp;url=/2019/01/intro-tensor.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=/2019/01/intro-tensor.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url=/2019/01/intro-tensor.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+                <aside class="post-tags">
+<a href="/tag/tensors">Tensors</a><a href="/tag/mathematics">Mathematics</a>                </aside>
+
+                <div class="clear"></div>
+
+                <aside class="post-author">
+
+
+                        <figure class="post-author-avatar">
+                            <img src="/assets/images/avatar.png" alt="Victor Do Nascimento" />
+                        </figure>
+                    <div class="post-author-bio">
+                        <h4 class="post-author-name"><a href="/author/victor">Victor Do Nascimento</a></h4>
+                            <p class="post-author-about">PhD Candidade in Theoretical and Computational Chemistry at the University of Southampton</p>
+                            <span class="post-author-location"><i class="ic ic-location"></i> Bournemouth</span>
+                        <!-- Social linkes in alphabet order. -->
+                            <span class="post-author-github"><a target="_blank" href="https://github.com/cha10vd"><i class="ic ic-link"></i> GitHub</a></span>
+                            <span class="post-author-linkedin"><a target="_blank" href="https://www.linkedin.com/in/https://www.linkedin.com/in/victor-luis-do-nascimento-38a493103/"><i class="ic ic-link"></i> LinkedIn</a></span>
+                    </div>
+                    <div class="clear"></div>
+                </aside>
+
+                </section>
+
+
+                <aside class="post-nav">
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
+
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+
+
+          <span class="credits-theme">Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a></span>
+          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
+        </section>
+      </div>
+    </footer>
+  </section>
+
+  <script type="text/javascript" src="/theme/js/script.js"></script>
+
+<script type="text/javascript">
+    var disqus_shortname = 'adphd-1';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>
